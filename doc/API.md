@@ -1,4 +1,8 @@
 # APIs of Match
+
+Frontend part
+------------------
+
 ## User login
   - url
     - /api/login
@@ -13,23 +17,26 @@
   - JSON example on success
     ```json
     {
-        "state":{
-            "code": 0,
-            "message": "ok"
-        },
-        "data":{
-            "user_id": 533,
-            "username": "Alison",
-        }
+      "state":
+      {
+          "code": 0,
+          "message": "ok"
+      },
+      "data":
+      {
+          "user_id": 533,
+          "username": "Alison",
+      }
     }
     ```
   - JSON example on fail
     ```json
     {
-        "state":{
-            "code": 1,
-            "message": "error"
-        }      
+      "state":
+      {
+          "code": 1,
+          "message": "error"
+      }      
     }
     ```
   - msic
@@ -50,7 +57,8 @@
   - JSON example on success
     ```json
     {
-        "state":{
+        "state":
+        {
             "code": 0,
             "message": "ok"
         }
@@ -58,11 +66,12 @@
     ```
   - JSON example on fail
     ```json
-        {
-        "state":{
-            "code": 1,
-            "message": "already exist"
-        }
+    {
+      "state":
+      {
+          "code": 1,
+          "message": "already exist"
+      }
     }
     ```
   - msic
@@ -79,31 +88,35 @@
   - JSON example on success
     ```json
     {
-        "state":{
-            "code": 0,
-            "message": "ok"
-        },
-        "data":{
-            "items":[
-                {
-                    "game_id": 1,
-                    "name": "The Legend of Zelda: Breath of the Wild",
-                    "discount": 0.75,
-                    "original_price": 499,
-                    "CNY_discounted": 329.71,
-                    "discount_area": "HK"
-                }
-            ]
-        }
+      "state":
+      {
+          "code": 0,
+          "message": "ok"
+      },
+      "data":
+      {
+          "items":
+          [
+            {
+              "game_id": 1,
+              "name": "The Legend of Zelda: Breath of the Wild",
+              "discount": 0.75,
+              "original_price": 499,
+              "CNY_discounted": 329.71,
+              "discount_area": "HK"
+            }
+          ]
+      }
     }
     ```
   - JSON example on fail
     ```json
-        {
-        "state":{
-            "code": 1,
-            "message": "user not exist"
-        }
+    {
+      "state":
+      {
+        "code": 1,
+        "message": "user not exist"
+      }
     }
     ```
   - msic
@@ -122,19 +135,21 @@
   - JSON example on success
     ```json
     {
-        "state":{
-            "code": 0,
-            "message": "ok"
-        }
+      "state":
+      {
+        "code": 0,
+        "message": "ok"
+      }
     }
     ```
   - JSON example on fail
     ```json
-        {
-        "state":{
-            "code": 1,
-            "message": "already exist"
-        }
+    {
+      "state":
+      {
+        "code": 1,
+        "message": "already exist"
+      }
     }
     ```
   - msic
@@ -152,40 +167,115 @@
   - JSON example on success
     ```json
     {
-        "state":{
-            "code": 0,
-            "message": "ok"
-        },
-        "data":{
-            "items":[
-                {
-                    "game_id": 1,
-                    "name": "The Legend of Zelda: Breath of the Wild",
-                    "discount": 0.75,
-                    "original_price": 499,
-                    "CNY_discounted": 329.71,
-                    "discount_area": "HK"
-                },
-                {
-                    "game_id": 2,
-                    "name": "Doraemon Story of Seasons",
-                    "discount": 0.9,
-                    "original_price": 6588,
-                    "CNY_discounted": 378.90,
-                    "discount_area": "JP"
-                }
-            ]
-        }
+      "state":
+      {
+        "code": 0,
+        "message": "ok"
+      },
+      "data":
+      {
+        "items":
+        [
+          {
+            "game_id": 1,
+            "name": "The Legend of Zelda: Breath of the Wild",
+            "discount": 0.75,
+            "original_price": 499,
+            "CNY_discounted": 329.71,
+            "discount_area": "HK"
+          },
+          {
+            "game_id": 2,
+            "name": "Doraemon Story of Seasons",
+            "discount": 0.9,
+            "original_price": 6588,
+            "CNY_discounted": 378.90,
+            "discount_area": "JP"
+          }
+        ]
+      }
     }
     ```
   - JSON example on fail
     ```json
-        {
-        "state":{
-            "code": 1,
-            "message": "server error"
-        }
+    {
+      "state":
+      {
+        "code": 1,
+        "message": "server error"
+      }
     }
     ```
   - msic
     - `original_price` is based on the `discount_area`
+
+Spider part
+------------------
+
+## add game
+  - url
+    - /api/spider/add_game
+  - type
+    - POST
+  - attrs
+    | name     | type   | required | desc.             | default | e.g.                                                                                                   |
+    | -------- | ------ | -------- | ----------------- | ------- | ------------------------------------------------------------------------------------------------------ |
+    | gamename | string | yes      | game's name       | -       | The Legend of Zelda: Breath of the Wild                                                                |
+    | price    | number | yes      | game's price      | -       | 499                                                                                                    |
+    | link     | string | yes      | detail page       | -       | https://store.nintendo.com.hk/70010000009367                                                           |
+    | image    | string | yes      | title image's url | -       | https://store.nintendo.com.hk/media/catalog/product/cache/6cfb139ec726e4601c9e927e52536377/1/1/110.jpg |
+    | desc     | string | yes      | description       | -       | 略                                                                                                     |
+  - JSON example on success
+    ```json
+    {
+      "state":
+      {
+        "code": 0,
+        "message": "ok"
+      }
+    }
+    ```
+  - JSON example on fail
+    ```json
+    {
+      "state":
+      {
+        "code": 1,
+        "message": "server error"
+      }
+    }
+    ```
+  - msic
+
+## new price
+  - url
+    - /api/spider/new_price
+  - type
+    - POST
+  - attrs
+    | name     | type      | required | desc.        | default | e.g.                                    |
+    | -------- | --------- | -------- | ------------ | ------- | --------------------------------------- |
+    | gamename | string    | yes      | game's name  | -       | The Legend of Zelda: Breath of the Wild |
+    | price    | number    | yes      | game's price | -       | 374.24                                  |
+    | date     | timestamp | yes      | timestamp    | -       | 1561562361                              |
+  - JSON example on success
+    ```json
+    {
+      "state":
+      {
+        "code": 0,
+        "message": "ok"
+      }
+    }
+    ```
+  - JSON example on fail
+    ```json
+    {
+      "state":
+      {
+        "code": 1,
+        "message": "server error"
+      }
+    }
+    ```
+  - msic
