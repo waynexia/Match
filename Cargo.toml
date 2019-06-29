@@ -1,0 +1,10 @@
+[package]
+name = "Match"
+version = "0.1.0"
+authors = ["Ruihang Xia <waynestxia@gmail.com>"]
+edition = "2018"
+
+[dependencies]
+actix-web = "1.0.3"
+actix-session = "0.1.1"
+diesel = { version = "1.4.2", features = ["mysql"] }

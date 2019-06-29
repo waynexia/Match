@@ -2,7 +2,7 @@ import requests
 from bs4 import BeautifulSoup
 
 eshop_hk = "https://store.nintendo.com.hk/"
-api_root = ""
+api_root = "http://localhost:8080"
 
 response = requests.get(eshop_hk)
 
@@ -30,6 +30,8 @@ for item in soup.find_all(name='div',attrs={"class":"category-product-item"}):
         "image": image_src,
         "desc": desc,
     }
-    requests.post(url = api_root + "/api/spider/add_game",json=data)
+    url = api_root + "/api/spider/add_game"
+    ret = requests.post(url = url.strip(),json=data)
+    print(ret.status_code)
 
 
