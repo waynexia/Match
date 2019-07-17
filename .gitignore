@@ -19,3 +19,6 @@ Cargo.lock
 
 # generated doc
 API.pdf
+
+# database file
+*.db
