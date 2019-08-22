@@ -1,0 +1,9 @@
+version: '2'
+
+services:
+  sqlite3:
+    image: nouchka/sqlite3:latest
+    ports: 
+      - 6033:3306
+    volumes: 
+      - "./local-db:/match/local-db"

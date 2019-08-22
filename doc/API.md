@@ -223,7 +223,7 @@ Spider part
     | gamename | string | yes      | game's name       | -       | The Legend of Zelda: Breath of the Wild                                                                |
     | price    | number | yes      | game's price      | -       | 499                                                                                                    |
     | link     | string | yes      | detail page       | -       | https://store.nintendo.com.hk/70010000009367                                                           |
-    | image    | string | yes      | title image's url | -       | https://store.nintendo.com.hk/media/catalog/product/cache/6cfb139ec726e4601c9e927e52536377/1/1/110.jpg |
+    | image_url    | string | yes      | title image's url | -       | https://store.nintendo.com.hk/media/catalog/product/cache/6cfb139ec726e4601c9e927e52536377/1/1/110.jpg |
     | desc     | string | yes      | description       | -       | 略                                                                                                     |
   - JSON example on success
     ```json

@@ -1,4 +1,7 @@
+use super::schema::game;
 use super::schema::user;
+
+// table user
 
 #[derive(Queryable)]
 pub struct User {
@@ -14,3 +17,25 @@ pub struct NewUser<'a> {
     pub email: &'a str,
     pub password: &'a str,
 }
+
+// table game
+
+#[derive(Queryable,Insertable,Deserialize,Debug)]
+#[table_name = "game"]
+pub struct game_infos {
+    pub gamename: String,
+    pub price: f32,
+    pub link: String,
+    pub image_url: String,
+    pub desc: String,
+}
+
+// #[derive(Insertable)]
+// #[table_name = "game"]
+// pub struct GameInfo<'a> {
+//     pub gamename: &'a str,
+//     pub price: &'a f32,
+//     pub link: &'a str,
+//     pub image_url: &'a str,
+//     pub desc: &'a str,
+// }

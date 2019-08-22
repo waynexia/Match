@@ -7,9 +7,9 @@ drop table user;
 create table game(
     gamename varchar(200),
     price float,
-    disc text,
+    desc text,
     link varchar(200),
-    image blob,
+    image_url varchar(200),
 
     primary key (gamename)
 );
