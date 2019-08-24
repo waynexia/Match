@@ -144,6 +144,42 @@ Frontend part
 
 ## Feel lucky
 ### Get a random game
+  - url
+    - /api/random_game
+  - type
+    - GET
+  - attrs
+    No attribute
+  - JSON example on success
+    ```json
+    {
+      "state":
+      {
+          "code": 0,
+          "message": "ok"
+      },
+      "data":
+      {
+            "game_id": 1,
+            "name": "The Legend of Zelda: Breath of the Wild",
+            "original_price": 499,
+            "current_price": 347.25,
+            "lowest_price": 300,
+            "link": "https://store.nintendo.com.hk/70010000009367",
+            "image_url": "https://store.nintendo.com.hk/media/catalog/product/cache/6cfb139ec726e4601c9e927e52536377/1/1/110.jpg"
+      }
+    }
+    ```
+  - JSON example on fail
+    ```json
+    {
+      "state":
+      {
+          "code": 1,
+          "message": "error"
+      }      
+    }
+    ```
 
 ## Detail of game
 ### Get detail
@@ -233,13 +269,13 @@ Spider part
   - type
     - POST
   - attrs
-    | name     | type   | required | desc.             | default | e.g.                                                                                                   |
-    | -------- | ------ | -------- | ----------------- | ------- | ------------------------------------------------------------------------------------------------------ |
-    | gamename | string | yes      | game's name       | -       | The Legend of Zelda: Breath of the Wild                                                                |
-    | price    | number | yes      | game's price      | -       | 499                                                                                                    |
-    | link     | string | yes      | detail page       | -       | https://store.nintendo.com.hk/70010000009367                                                           |
-    | image_url    | string | yes      | title image's url | -       | https://store.nintendo.com.hk/media/catalog/product/cache/6cfb139ec726e4601c9e927e52536377/1/1/110.jpg |
-    | desc     | string | yes      | description       | -       | 略                                                                                                     |
+    | name      | type   | required | desc.             | default | e.g.                                                                                                   |
+    | --------- | ------ | -------- | ----------------- | ------- | ------------------------------------------------------------------------------------------------------ |
+    | gamename  | string | yes      | game's name       | -       | The Legend of Zelda: Breath of the Wild                                                                |
+    | price     | number | yes      | game's price      | -       | 499                                                                                                    |
+    | link      | string | yes      | detail page       | -       | https://store.nintendo.com.hk/70010000009367                                                           |
+    | image_url | string | yes      | title image's url | -       | https://store.nintendo.com.hk/media/catalog/product/cache/6cfb139ec726e4601c9e927e52536377/1/1/110.jpg |
+    | desc      | string | yes      | description       | -       | 略                                                                                                     |
   - JSON example on success
     ```json
     {
