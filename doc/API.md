@@ -74,9 +74,9 @@ Frontend part
   - type
     - GET
   - attrs
-    | name | type   | required | desc.     | default | e.g. |
-    | ---- | ------ | -------- | --------- | ------- | ---- |
-    | nickname   | number | yes      | user's nickname | -       | Alison  |
+    | name     | type   | required | desc.           | default | e.g.   |
+    | -------- | ------ | -------- | --------------- | ------- | ------ |
+    | nickname | number | yes      | user's nickname | -       | Alison |
   - JSON example on success
     ```json
     {
@@ -120,10 +120,14 @@ Frontend part
   - type
     - POST
   - attrs
-    | name    | type      | required | desc.               | default | e.g.       |
-    | ------- | --------- | -------- | ------------------- | ------- | ---------- |
-    | nickname | number    | yes      | user's nickname           | -       | Alison        |
-    | gamename | number    | yes      | game's name           | -       | 1          |
+
+    | name        | type    | required | desc.           | default | e.g.   |
+    | ----------- | ------- | -------- | --------------- | ------- | ------ |
+    | nickname    | number  | yes      | user's nickname | -       | Alison |
+    | gamename    | number  | yes      | game's name     | -       | 1      |
+    | email_alert | boolean | yes      | is turning on   | -       | true   |
+    
+
   - JSON example on success
     ```json
     {
@@ -152,10 +156,10 @@ Frontend part
   - type
     - POST
   - attrs
-    | name    | type      | required | desc.               | default | e.g.       |
-    | ------- | --------- | -------- | ------------------- | ------- | ---------- |
-    | nickname | number    | yes      | user's nickname           | -       | 533        |
-    | gamename | number    | yes      | game's name           | -       | 1          |
+    | name     | type   | required | desc.           | default | e.g. |
+    | -------- | ------ | -------- | --------------- | ------- | ---- |
+    | nickname | number | yes      | user's nickname | -       | 533  |
+    | gamename | number | yes      | game's name     | -       | 1    |
   - JSON example on success
     ```json
     {
@@ -186,11 +190,11 @@ Frontend part
   - type
     - POST
   - attrs
-    | name    | type      | required | desc.               | default | e.g.       |
-    | ------- | --------- | -------- | ------------------- | ------- | ---------- |
-    | nickname | number    | yes      | user's nickname           | -       | 533        |
-    | gamename | number    | yes      | game's name           | -       | 1          |
-    | turn_on | boolean   | yes      | is turning on       | -       | false      |
+    | name     | type    | required | desc.           | default | e.g.  |
+    | -------- | ------- | -------- | --------------- | ------- | ----- |
+    | nickname | number  | yes      | user's nickname | -       | 533   |
+    | gamename | number  | yes      | game's name     | -       | 1     |
+    | turn_on  | boolean | yes      | is turning on   | -       | false |
     
   - JSON example on success
     ```json
@@ -262,9 +266,9 @@ Frontend part
   - type
     - POST
   - attrs
-    | name    | type      | required | desc.               | default | e.g.       |
-    | ------- | --------- | -------- | ------------------- | ------- | ---------- |
-    | gamename | string    | yes      | game's id           | -       | The Legend of Zelda: Breath of the Wild          |
+    | name     | type   | required | desc.     | default | e.g.                                    |
+    | -------- | ------ | -------- | --------- | ------- | --------------------------------------- |
+    | gamename | string | yes      | game's id | -       | The Legend of Zelda: Breath of the Wild |
     
   - JSON example on success
     ```json
