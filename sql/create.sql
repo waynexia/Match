@@ -1,4 +1,4 @@
-drop table want;
+drop table wishlist;
 drop table own;
 drop table history_price;
 drop table game;
@@ -6,10 +6,12 @@ drop table user;
 
 create table game(
     gamename varchar(200),
-    price float,
-    desc text,
+    oringinal_price float,
+    current_price float,
+    lowest_price float,
     link varchar(200),
     image_url varchar(200),
+    desc text,
 
     primary key (gamename)
 );
@@ -22,9 +24,10 @@ create table user(
     primary key (nickname)
 );
 
-create table want(
-    nickname varchar(200),
-    gamename varchar(200),
+create table wishlist(
+    nickname int,
+    gamename int,
+    email_alert boolean,
 
     primary key (nickname,gamename),
     foreign key (nickname) references user(nickname),
@@ -32,8 +35,8 @@ create table want(
 );
 
 create table own(
-    nickname varchar(200),
-    gamename varchar(200),
+    nickname int,
+    gamename int,
 
     primary key (nickname,gamename),
     foreign key (nickname) references user(nickname),

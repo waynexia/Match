@@ -6,6 +6,13 @@ pub struct UserInfo {
 }
 
 #[derive(Deserialize)]
-pub struct get_detail_info {
+pub struct GetDetailInfo {
     pub gamename: String,
 }
+
+// #[derive(Deserialize, Serialize,Insertable)]
+// pub struct WishlistInfo {
+//     pub nickname: String,
+//     pub gamename: String,
+//     pub email_alert: bool,
+// }

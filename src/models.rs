@@ -1,5 +1,6 @@
 use super::schema::game;
 use super::schema::user;
+use super::schema::wishlist;
 
 // table user
 
@@ -30,6 +31,14 @@ pub struct game_infos {
     pub link: String,
     pub image_url: String,
     pub desc: String,
+}
+
+#[derive(Insertable, Queryable, Deserialize)]
+#[table_name = "wishlist"]
+pub struct wishlist_infos {
+    pub nickname: String,
+    pub gamename: String,
+    pub email_alert: bool,
 }
 
 // #[derive(Insertable)]

@@ -20,8 +20,8 @@ table! {
 
 table! {
     wishlist(nickname,gamename){
-        nickname->Integer,
-        gamename->Integer,
+        nickname->Varchar,
+        gamename->Varchar,
         email_alert->Bool,
     }
 }
