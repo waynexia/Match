@@ -11,6 +11,11 @@ pub struct GetDetailInfo {
 }
 
 #[derive(Deserialize)]
+pub struct GetWishlistInfo {
+    pub nickname: String,
+}
+
+#[derive(Deserialize)]
 pub struct LoginInfo {
     pub nickname: String,
     pub password: String,

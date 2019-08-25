@@ -93,10 +93,9 @@ pub fn hash(input: &str) -> String {
 
 pub fn check_password(hash_value: &str, password: &str, salt: &str) -> bool {
     use crypto;
-    
 
-    println!("{}",hash_value);
-    println!("{}",hash(&(password.to_owned() + salt)));
+    println!("{}", hash_value);
+    println!("{}", hash(&(password.to_owned() + salt)));
 
     crypto::util::fixed_time_eq(
         hash_value.as_bytes(),

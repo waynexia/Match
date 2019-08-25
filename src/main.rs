@@ -56,13 +56,20 @@ fn main() -> std::io::Result<()> {
                     .route(post().to_async(api::add_wishlist)),
             )
             .service(
-                resource("/api/login")
-                .data(web::JsonConfig::default())
-                .route(post().to_async(api::login))
+                resource("/api/del_wishlist")
+                    .data(web::JsonConfig::default())
+                    .route(post().to_async(api::del_wishlist)),
             )
             .service(
-                resource("/api/game_list")
-                .route(get().to_async(api::get_game_list))
+                resource("/api/login")
+                    .data(web::JsonConfig::default())
+                    .route(post().to_async(api::login)),
+            )
+            .service(resource("/api/game_list").route(get().to_async(api::get_game_list)))
+            .service(
+                resource("api/get_wishlist")
+                .data(web::JsonConfig::default())
+                .route(post().to_async(api::get_wishlist) )
             )
     })
     .bind("127.0.0.1:8080")?

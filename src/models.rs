@@ -4,7 +4,7 @@ use super::schema::wishlist;
 
 // table user
 
-#[derive(Queryable,Debug)]
+#[derive(Queryable, Debug)]
 pub struct User {
     pub nickname: String,
     pub email: String,
@@ -35,7 +35,7 @@ pub struct game_infos {
     pub desc: String,
 }
 
-#[derive(Insertable, Queryable, Deserialize)]
+#[derive(Insertable, Queryable, Deserialize,Serialize)]
 #[table_name = "wishlist"]
 pub struct wishlist_infos {
     pub nickname: String,
