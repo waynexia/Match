@@ -23,23 +23,35 @@ Frontend part
       },
       "data":
       {
+        "length": 3,
         "items":
         [
           {
             "game_id": 1,
             "name": "The Legend of Zelda: Breath of the Wild",
-            "discount": 0.75,
             "original_price": 499,
-            "CNY_discounted": 329.71,
-            "discount_area": "HK"
+            "current_price": 347.25,
+            "lowest_price": 300,
+            "link": "https://store.nintendo.com.hk/70010000009367",
+            "image_url": "https://store.nintendo.com.hk/media/catalog/product/cache/6cfb139ec726e4601c9e927e52536377/1/1/110.jpg"
           },
           {
             "game_id": 2,
             "name": "Doraemon Story of Seasons",
-            "discount": 0.9,
-            "original_price": 6588,
-            "CNY_discounted": 378.90,
-            "discount_area": "JP"
+            "original_price": 419,
+            "current_price": 347.25,
+            "lowest_price": 300,
+            "link": "https://store.nintendo.com.hk/70010000019943",
+            "image_url": "https://store.nintendo.com.hk/media/catalog/product/cache/08244de22d08060bc462ed2f13fdcc18/1/9/1920_1080__ch__1_.jpg"
+          },
+          {
+            "game_id": 3,
+            "name": "Fire Emblem 風花雪月",
+            "original_price": 429,
+            "current_price": 429,
+            "lowest_price": 429,
+            "link": "https://store.nintendo.com.hk/70010000021361",
+            "image_url": "https://store.nintendo.com.hk/media/catalog/product/cache/08244de22d08060bc462ed2f13fdcc18/f/e/fe_1920_1080_ray_tc.jpg"
           }
         ]
       }
@@ -56,7 +68,7 @@ Frontend part
     }
     ```
   - msic
-    - `original_price` is based on the `discount_area`
+    - In JSON example on success, only the first and second have discount.
 
 ## Wish list
 ### Get wishlist
@@ -78,17 +90,19 @@ Frontend part
       },
       "data":
       {
-          "items":
-          [
-            {
-              "game_id": 1,
-              "name": "The Legend of Zelda: Breath of the Wild",
-              "discount": 0.75,
-              "original_price": 499,
-              "CNY_discounted": 329.71,
-              "discount_area": "HK"
-            }
-          ]
+        "length": 1,
+        "items":
+        [
+          {
+            "game_id": 1,
+            "name": "The Legend of Zelda: Breath of the Wild",
+            "original_price": 499,
+            "current_price": 347.25,
+            "lowest_price": 300,
+            "link": "https://store.nintendo.com.hk/70010000009367",
+            "image_url": "https://store.nintendo.com.hk/media/catalog/product/cache/6cfb139ec726e4601c9e927e52536377/1/1/110.jpg"
+          },
+        ]
       }
     }
     ```
@@ -114,7 +128,6 @@ Frontend part
     | ------- | --------- | -------- | ------------------- | ------- | ---------- |
     | user_id | number    | yes      | user's id           | -       | 533        |
     | game_id | number    | yes      | game's id           | -       | 1          |
-    | TS      | timestamp | yes      | timestamp of adding | -       | 1561562361 |
   - JSON example on success
     ```json
     {
@@ -136,11 +149,76 @@ Frontend part
     }
     ```
   - msic
-    - `original_price` is based on the `discount_area`
   
 ### Delete from wishlist
+  - url
+    - /api/del_wishlist
+  - type
+    - POST
+  - attrs
+    | name    | type      | required | desc.               | default | e.g.       |
+    | ------- | --------- | -------- | ------------------- | ------- | ---------- |
+    | user_id | number    | yes      | user's id           | -       | 533        |
+    | game_id | number    | yes      | game's id           | -       | 1          |
+  - JSON example on success
+    ```json
+    {
+      "state":
+      {
+        "code": 0,
+        "message": "ok"
+      }
+    }
+    ```
+  - JSON example on fail
+    ```json
+    {
+      "state":
+      {
+        "code": 1,
+        "message": "not exist"
+      }
+    }
+    ```
+  - msic
+
 
 ### Turn on/off mail alerts
+### Delete from wishlist
+  - url
+    - /api/change_alert
+  - type
+    - POST
+  - attrs
+    | name    | type      | required | desc.               | default | e.g.       |
+    | ------- | --------- | -------- | ------------------- | ------- | ---------- |
+    | user_id | number    | yes      | user's id           | -       | 533        |
+    | game_id | number    | yes      | game's id           | -       | 1          |
+    | turn_on | boolean   | yes      | is turning on       | -       | false      |
+    
+  - JSON example on success
+    ```json
+    {
+      "state":
+      {
+        "code": 0,
+        "message": "ok"
+      }
+    }
+    ```
+  - JSON example on fail
+    ```json
+    {
+      "state":
+      {
+        "code": 1,
+        "message": "not exist in wishlist"
+      }
+    }
+    ```
+  - msic
+
+
 
 ## Feel lucky
 ### Get a random game
@@ -183,6 +261,50 @@ Frontend part
 
 ## Detail of game
 ### Get detail
+  - url
+    - /api/change_alert
+  - type
+    - POST
+  - attrs
+    | name    | type      | required | desc.               | default | e.g.       |
+    | ------- | --------- | -------- | ------------------- | ------- | ---------- |
+    | game_id | number    | yes      | game's id           | -       | 1          |
+    
+  - JSON example on success
+    ```json
+    {
+      "state":
+      {
+        "code": 0,
+        "message": "ok"
+      },
+      "data":
+      {
+        "game_id": 1,
+        "name": "The Legend of Zelda: Breath of the Wild",
+        "original_price": 499,
+        "current_price": 347.25,
+        "lowest_price": 300,
+        "link": "https://store.nintendo.com.hk/70010000009367",
+        "image_url": "https://store.nintendo.com.hk/media/catalog/product/cache/6cfb139ec726e4601c9e927e52536377/1/1/110.jpg",
+        "desc": "以廣闊的世界為舞台，無論去哪裡、做什麼，冒險的一切由你決定。狩獵野生動物過活？去消滅魔物？逛盡各處景點？奔跑、游泳、滑翔、攀登，能在廣闊無垠的世界中享受自由自在的冒險。Nintendo Switch的話，可以在家裡的電視上仔細遊玩後繼續外出遊玩，就連遊戲方式都自由自在。
+                【故事大綱】
+                被稱為大災厄的災害發生了，海拉魯王國被滅亡了……
+                100年後，主角林克從地下遺跡的長眠中甦醒，在不可思議的聲音引導下踏上大地。"
+      }
+    }
+    ```
+  - JSON example on fail
+    ```json
+    {
+      "state":
+      {
+        "code": 1,
+        "message": "game not exist"
+      }
+    }
+    ```
+  - msic
 
 ## User 
 ### User login
@@ -257,8 +379,6 @@ Frontend part
     }
     ```
   - msic
-
-### Get new messages
 
 Spider part
 ------------------
