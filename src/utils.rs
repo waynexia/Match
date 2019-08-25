@@ -13,7 +13,13 @@ pub fn establish_connection() -> SqliteConnection {
         .unwrap_or_else(|_| panic!("Error connect to {}", database_url))
 }
 
-pub fn create_user(conn: &SqliteConnection, nickname: &str, email: &str, password: &str) -> User {
+pub fn create_user(
+    conn: &SqliteConnection,
+    nickname: &str,
+    email: &str,
+    password: &str,
+    salt: &str,
+) -> User {
     use crate::models::NewUser;
     use crate::schema::user;
 
@@ -21,6 +27,7 @@ pub fn create_user(conn: &SqliteConnection, nickname: &str, email: &str, passwor
         nickname,
         email,
         password,
+        salt,
     };
 
     diesel::insert_into(user::table)
@@ -63,4 +70,36 @@ pub fn is_wishlist_exist(conn: &SqliteConnection, nickname_arg: &str, gamename_a
         .expect("Error while quering wishlist");
 
     result.len() != 0
+}
+
+pub fn gen_salt() -> String {
+    use crypto::digest::Digest;
+    use crypto::sha1::Sha1;
+    use rand::prelude::*;
+
+    let mut hasher = Sha1::new();
+    hasher.input_str(rand::random::<char>().to_string().as_str());
+    hasher.result_str()[0..8].to_string()
+}
+
+pub fn hash(input: &str) -> String {
+    use crypto::digest::Digest;
+    use crypto::sha1::Sha1;
+
+    let mut hasher = Sha1::new();
+    hasher.input_str(input);
+    hasher.result_str()
+}
+
+pub fn check_password(hash_value: &str, password: &str, salt: &str) -> bool {
+    use crypto;
+    
+
+    println!("{}",hash_value);
+    println!("{}",hash(&(password.to_owned() + salt)));
+
+    crypto::util::fixed_time_eq(
+        hash_value.as_bytes(),
+        hash(&(password.to_owned() + salt)).as_bytes(),
+    )
 }

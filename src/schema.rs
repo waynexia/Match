@@ -3,6 +3,7 @@ table! {
         nickname -> Varchar,
         email -> Varchar,
         password -> Varchar,
+        salt -> Varchar,
     }
 }
 

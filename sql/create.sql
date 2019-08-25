@@ -20,6 +20,7 @@ create table user(
     nickname varchar(200),
     email varchar(200),
     password varchar(200),
+    salt varchar(8),
 
     primary key (nickname)
 );

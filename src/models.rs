@@ -4,11 +4,12 @@ use super::schema::wishlist;
 
 // table user
 
-#[derive(Queryable)]
+#[derive(Queryable,Debug)]
 pub struct User {
     pub nickname: String,
     pub email: String,
     pub password: String,
+    pub salt: String,
 }
 
 #[derive(Insertable)]
@@ -17,6 +18,7 @@ pub struct NewUser<'a> {
     pub nickname: &'a str,
     pub email: &'a str,
     pub password: &'a str,
+    pub salt: &'a str,
 }
 
 // table game

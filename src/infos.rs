@@ -10,6 +10,12 @@ pub struct GetDetailInfo {
     pub gamename: String,
 }
 
+#[derive(Deserialize)]
+pub struct LoginInfo {
+    pub nickname: String,
+    pub password: String,
+}
+
 // #[derive(Deserialize, Serialize,Insertable)]
 // pub struct WishlistInfo {
 //     pub nickname: String,
