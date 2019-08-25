@@ -27,7 +27,6 @@ Frontend part
         "items":
         [
           {
-            "game_id": 1,
             "name": "The Legend of Zelda: Breath of the Wild",
             "original_price": 499,
             "current_price": 347.25,
@@ -36,7 +35,6 @@ Frontend part
             "image_url": "https://store.nintendo.com.hk/media/catalog/product/cache/6cfb139ec726e4601c9e927e52536377/1/1/110.jpg"
           },
           {
-            "game_id": 2,
             "name": "Doraemon Story of Seasons",
             "original_price": 419,
             "current_price": 347.25,
@@ -45,7 +43,6 @@ Frontend part
             "image_url": "https://store.nintendo.com.hk/media/catalog/product/cache/08244de22d08060bc462ed2f13fdcc18/1/9/1920_1080__ch__1_.jpg"
           },
           {
-            "game_id": 3,
             "name": "Fire Emblem 風花雪月",
             "original_price": 429,
             "current_price": 429,
@@ -79,7 +76,7 @@ Frontend part
   - attrs
     | name | type   | required | desc.     | default | e.g. |
     | ---- | ------ | -------- | --------- | ------- | ---- |
-    | id   | number | yes      | user's id | -       | 533  |
+    | nickname   | number | yes      | user's nickname | -       | Alison  |
   - JSON example on success
     ```json
     {
@@ -94,7 +91,6 @@ Frontend part
         "items":
         [
           {
-            "game_id": 1,
             "name": "The Legend of Zelda: Breath of the Wild",
             "original_price": 499,
             "current_price": 347.25,
@@ -126,8 +122,8 @@ Frontend part
   - attrs
     | name    | type      | required | desc.               | default | e.g.       |
     | ------- | --------- | -------- | ------------------- | ------- | ---------- |
-    | user_id | number    | yes      | user's id           | -       | 533        |
-    | game_id | number    | yes      | game's id           | -       | 1          |
+    | nickname | number    | yes      | user's nickname           | -       | Alison        |
+    | gamename | number    | yes      | game's name           | -       | 1          |
   - JSON example on success
     ```json
     {
@@ -158,8 +154,8 @@ Frontend part
   - attrs
     | name    | type      | required | desc.               | default | e.g.       |
     | ------- | --------- | -------- | ------------------- | ------- | ---------- |
-    | user_id | number    | yes      | user's id           | -       | 533        |
-    | game_id | number    | yes      | game's id           | -       | 1          |
+    | nickname | number    | yes      | user's nickname           | -       | 533        |
+    | gamename | number    | yes      | game's name           | -       | 1          |
   - JSON example on success
     ```json
     {
@@ -192,8 +188,8 @@ Frontend part
   - attrs
     | name    | type      | required | desc.               | default | e.g.       |
     | ------- | --------- | -------- | ------------------- | ------- | ---------- |
-    | user_id | number    | yes      | user's id           | -       | 533        |
-    | game_id | number    | yes      | game's id           | -       | 1          |
+    | nickname | number    | yes      | user's nickname           | -       | 533        |
+    | gamename | number    | yes      | game's name           | -       | 1          |
     | turn_on | boolean   | yes      | is turning on       | -       | false      |
     
   - JSON example on success
@@ -262,13 +258,13 @@ Frontend part
 ## Detail of game
 ### Get detail
   - url
-    - /api/change_alert
+    - /api/get_detail
   - type
     - POST
   - attrs
     | name    | type      | required | desc.               | default | e.g.       |
     | ------- | --------- | -------- | ------------------- | ------- | ---------- |
-    | game_id | number    | yes      | game's id           | -       | 1          |
+    | gamename | string    | yes      | game's id           | -       | The Legend of Zelda: Breath of the Wild          |
     
   - JSON example on success
     ```json
@@ -280,7 +276,6 @@ Frontend part
       },
       "data":
       {
-        "game_id": 1,
         "name": "The Legend of Zelda: Breath of the Wild",
         "original_price": 499,
         "current_price": 347.25,
@@ -328,7 +323,6 @@ Frontend part
       },
       "data":
       {
-          "user_id": 533,
           "username": "Alison",
       }
     }

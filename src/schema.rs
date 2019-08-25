@@ -9,9 +9,19 @@ table! {
 table! {
     game(gamename){
         gamename->Varchar,
-        price->Float,
+        oringinal_price->Float,
+        current_price->Float,
+        lowest_price->Float,
         link->Text,
         image_url->Text,
         desc->Text,
+    }
+}
+
+table! {
+    wishlist(nickname,gamename){
+        nickname->Integer,
+        gamename->Integer,
+        email_alert->Bool,
     }
 }

@@ -20,11 +20,13 @@ pub struct NewUser<'a> {
 
 // table game
 
-#[derive(Queryable,Insertable,Deserialize,Debug)]
+#[derive(Queryable, Insertable, Deserialize, Debug, Serialize)]
 #[table_name = "game"]
 pub struct game_infos {
     pub gamename: String,
-    pub price: f32,
+    pub oringinal_price: f32,
+    pub current_price: f32,
+    pub lowest_price: f32,
     pub link: String,
     pub image_url: String,
     pub desc: String,
